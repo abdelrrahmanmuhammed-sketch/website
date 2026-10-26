@@ -1,0 +1,662 @@
+:root {
+    --primary: blue;
+    --dark: black;
+    --accent: yellow;
+    --light: white;
+    --white: white;
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--accent);
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+.navbar {
+    background: var(--dark);
+    padding: 18px 0;
+    color: white;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.menu > li > a {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.menu a:hover {
+    background:bisque ;
+}
+
+.menu .nav-btn {
+    background: var(--primary);
+}
+
+
+.hero {
+    background: linear-gradient(120deg, var(--dark), #312E81);
+    color: white;
+    padding: 70px 0;
+}
+
+.hero-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero-text h1 + p {
+    color: #E5E7EB;
+    margin-bottom: 25px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    background: #374151;
+    border-radius: 20px;
+}
+
+.hero-badge::before {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #22C55E;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: blink 1.5s infinite;
+}
+
+.hero-image {
+    flex: 0 0 45%;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    animation: float 4s infinite ease-in-out;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.stat h2 {
+    color: var(--primary);
+}
+
+.stat h2::after {
+    display: none;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: minmax(300px, auto);
+    gap: 24px;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+.course-card > img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.course-card.featured {
+    grid-column: 1 / span 2;
+    grid-row: span 2;
+}
+
+.course-card.featured > img {
+    flex: 1;
+}
+
+.course-card.featured::before {
+    content: "Most Popular";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.level {
+    align-self: flex-start;
+    background: #DCFCE7;
+    color: #166534;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.course-card h3 {
+    margin-bottom: 8px;
+}
+
+.course-card h3 ~ p {
+    color: #6B7280;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.card-footer span {
+    flex-grow: 1;
+}
+
+.enroll {
+    background: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.enroll:hover {
+    background: #3730A3;
+}
+
+/* How It Works */
+.how-section {
+    background: var(--light);
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    flex: 1 1 280px;
+    gap: 15px;
+    padding: 24px;
+    background: white;
+    border-radius: var(--radius);
+}
+
+.step:nth-child(even) {
+    background: #EDE9FE;
+}
+
+.step:first-child {
+    border: 2px solid var(--primary);
+}
+
+.step:last-child {
+    border-bottom: 4px solid var(--accent);
+}
+
+.step-number {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(150px, auto));
+    grid-template-areas:
+        "live live labs"
+        "cert path labs";
+    gap: 20px;
+}
+
+.feature {
+    padding: 25px;
+    border-radius: var(--radius);
+}
+
+.live {
+    grid-area: live;
+    background: #E0E7FF;
+}
+
+.labs {
+    grid-area: labs;
+    background: var(--dark);
+    color: white;
+}
+
+.labs p {
+    color: #D1D5DB;
+}
+
+.cert {
+    grid-area: cert;
+    background: #FEF3C7;
+}
+
+.path {
+    grid-area: path;
+    background: #DCFCE7;
+}
+
+/* Trainers */
+.trainers-section {
+    background: #F9FAFB;
+}
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    gap: 24px;
+    justify-content: center;
+    align-content: center;
+    min-height: 480px;
+}
+
+.trainer-card {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.trainer-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    transition: 0.3s;
+}
+
+.trainer-card:hover img {
+    transform: scale(1.06) rotate(4deg);
+}
+
+/* Student Projects */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 140px;
+    gap: 16px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.project:hover img {
+    transform: scale(1.08);
+}
+
+.project-one {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.project-four {
+    grid-column: 3 / span 2;
+    grid-row: 1 / 3;
+}
+
+
+.newsletter {
+    background: var(--primary);
+    color: white;
+    padding: 40px 0;
+}
+
+.newsletter h2::after {
+    display: none;
+}
+
+.newsletter p {
+    color: #E0E7FF;
+}
+
+.newsletter-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.newsletter input {
+    padding: 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.newsletter button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark);
+    color: white;
+    padding: 35px 0;
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer p {
+    color: #D1D5DB;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer a {
+    color: #E5E7EB;
+}
+
+.footer a:hover {
+    color: var(--accent);
+}
+a:focus,
+button:focus,
+input:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-direction: column;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+    }
+
+    .hero-image {
+        order: -1;
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card.featured {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .course-card.featured > img {
+        flex: initial;
+        height: 170px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "live"
+            "labs"
+            "cert"
+            "path";
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-one,
+    .project-six {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .project-four {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .newsletter form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .newsletter input,
+    .newsletter button {
+        width: 100%;
+    }
+}
